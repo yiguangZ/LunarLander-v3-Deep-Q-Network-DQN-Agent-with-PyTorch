@@ -1,55 +1,40 @@
-# 🧠 Deep Q-Learning on CartPole using PyTorch
+# 🚀 LunarLander-v3: Deep Q-Network (DQN) Agent with PyTorch
 
-This project is a tutorial-style notebook demonstrating how to train a Deep Q-Network (DQN) agent using PyTorch to solve the CartPole-v1 environment from [Gymnasium](https://gymnasium.farama.org).
-
-The notebook is based on work by Adam Paszke and Mark Towers, with major edits by Matthew Dupree and Heekyung Lee for UCSB's ECE 157B/272B course (Winter 2025).
+This project implements a Deep Q-Network (DQN) agent to solve the LunarLander-v3 environment from OpenAI Gym using PyTorch. The agent learns to land a spacecraft safely between landing pads by approximating the optimal Q-value function from experience.
 
 ## 🎯 Objective
+Train a reinforcement learning agent to land the lunar module smoothly by learning optimal actions from trial-and-error interactions with the environment.
 
-Train an agent to balance a pole on a moving cart by learning an optimal policy via reinforcement learning. The agent observes a 4-dimensional state and selects from two possible actions (move left or right). The environment terminates when the pole falls or the cart moves out of bounds.
+## 🧠 Key Features
 
-## 🚀 Features
+- **Deep Q-Network (DQN):** Uses a fully connected neural network to approximate Q-values.
+- **Experience Replay:** Stores past transitions and samples them randomly to break correlation in updates.
+- **Target Network:** Stabilizes training by updating a separate target network periodically.
+- **Epsilon-Greedy Strategy:** Balances exploration and exploitation during training.
+- **Reward Clipping and Normalization:** Ensures stable training dynamics.
 
-- Custom implementation of DQN using PyTorch
-- CartPole-v1 task from Gymnasium classic control suite
-- Replay buffer for experience replay
-- Target network for stable Q-learning
-- Performance evaluation and visualization
-- Video generation of agent performance using `moviepy` and `ffmpeg`
+## 🛠️ Technologies Used
 
-## 📦 Dependencies
+- **Python 3**
+- **PyTorch**
+- **OpenAI Gym**
+- **NumPy**
 
-Install the required packages using:
+## 🧪 Training Results
 
-```bash
-pip install swig
-pip install torch gymnasium[classic_control,box2d] pandas numpy nbformat plotly tqdm moviepy ffmpeg ipywidgets
-```
+- Achieves consistent landings with high episodic rewards.
+- Training stabilizes with average scores well above the environment's solved threshold.
 
-For Colab users: If video rendering fails, install ffmpeg manually:
+## 📁 Files
 
-```bash
-!apt-get install ffmpeg
-```
+- `dqn_agent.py` – Implementation of the DQN agent class.
+- `train.py` – Main training loop and environment interaction.
+- `LunarLander-v3_dqn.pt` – Trained model checkpoint.
+- `utils.py` – Helper functions for replay buffer and neural network.
+- `requirements.txt` – Python dependencies.
 
-## 📈 Output
+## 🚀 How to Run
 
-- Real-time training statistics
-- Interactive reward plots (via Plotly)
-- Saved videos demonstrating the trained agent's performance
-
-## 📁 File Structure
-
-- `ECE_157B_272B_W24_Homework4__1_.ipynb`: Main notebook with all code and commentary
-- `videos/`: Folder (optional) for storing recorded videos
-- `README.md`: Project overview and setup instructions
-
-## 🖥️ Author Credits
-
-- Original notebook: Adam Paszke, Mark Towers
-- UCSB Edits: Matthew Dupree, Heekyung Lee
-- Student Work: Yiguang Zhu (based on ECE 157B/272B Winter 2025)
-
----
-
-This project is a great starting point for anyone interested in deep reinforcement learning with PyTorch and Gym environments.
+1. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
